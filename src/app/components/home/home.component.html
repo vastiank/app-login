@@ -1,0 +1,67 @@
+<div class="text-left p-3">
+    <button (click)="cerrarSesion()" class="btn btn-danger" style="float: right;">
+        <i class="fas fa-sign-out-alt"></i>
+        Salir
+    </button>
+</div>
+
+<div class="container p-5">
+
+    <strong>Hola, ADMIN</strong>
+
+    <div class="col">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contraseña</th>
+                    <th scope="col">Fecha de creación</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users;let i = index">
+                    <th scope="col">{{i+1}} </th>
+                    <td>
+                        <small>
+                            <strong>{{user.name}}</strong>
+                        </small>
+                    </td>
+                    <td>
+                        <small>
+                            <strong>{{user.email}}</strong>
+                        </small>
+                    </td>
+                    <td>
+                        <small>
+                            <strong>{{user.password}}</strong>
+                        </small></td>
+                    <td>
+                        <small>
+                            <strong>{{user.creationDate}} </strong>
+                        </small>
+                    </td>
+                    <td>
+                        <button [routerLink]="['/home/edit', user.id_user]" class="btn btn-info mr-2">
+                            <i class="fa fa-pen"></i>
+                        </button>
+                        <button (click)="removeUser(user,i)" class="btn btn-danger">
+                            <i class="fas fa-user-minus"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="loading" class="alert alert-info text-center">
+            <h6 class="alert-heading">Cargando</h6>
+            <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+        </div>
+        <div *ngIf="!loading && users.length === 0" class="alert alert-warning text-center">
+            <h6 class="alert-heading">No hay registros</h6>
+            <i class="fa fa-exclamation fa-2x"></i>
+        </div>
+    </div>
+</div>
+
