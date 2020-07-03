@@ -20,6 +20,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    Swal.fire({
+      title: 'BIENVENIDO',
+      showConfirmButton: true
+    });
+    
+
     this.loading= true;
 
     this.userService.getUsers()

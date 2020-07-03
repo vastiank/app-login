@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { ListComponent } from './components/home/list/list.component';
+import { AddOrEditComponent } from './components/home/add-or-edit/add-or-edit.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     RegistroComponent,
     LoginComponent,
-    HomeComponent,  
+    HomeComponent,
+    ListComponent,
+    AddOrEditComponent,  
     
   ],
   imports: [

@@ -19,6 +19,8 @@ export class RegistroComponent implements OnInit {
   usuario: UsuarioModel;
   recordarUsuario = false;
 
+  passwordsIncorrect = false;
+
   userData:UsuarioDB = new UsuarioDB();
 
 
@@ -33,6 +35,12 @@ export class RegistroComponent implements OnInit {
   onSubmit( form:NgForm ){
 
     if (form.invalid) {return;}
+
+    if (this.usuario.password != this.usuario.confirmPassword){
+
+      this.passwordsIncorrect = true;
+      return;
+    }
 
     Swal.fire({
       allowOutsideClick: false,
@@ -52,16 +60,10 @@ export class RegistroComponent implements OnInit {
           Swal.close();
           console.log(resp);
           
-          /*
-          //Send Email Verification
-          this.auth.sendEmail().subscribe( (resp:UsuarioModel) => {
-            this.usuario.email = resp.email;
-          })
-          */
           
-          //this.router.navigateByUrl('/home');
+          
 
-          this.router.navigate(['/login']);
+          this.router.navigate(['/home']);
 
           if (this.recordarUsuario) {
             localStorage.setItem('userEmail', this.usuario.email);

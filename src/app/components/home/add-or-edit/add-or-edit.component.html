@@ -1,0 +1,47 @@
+<br>
+<hr>
+<div class="container p-5">
+    <strong class="text-danger ">Importante: </strong> <strong>Las credenciales de acceso son las mismas del registro, estas no se actualizan en esta zona</strong>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-5">
+            <form (ngSubmit)="saveCustomer(ref)" #ref="ngForm">
+    
+                <div class="form-group">
+                    <i class="fas fa-chevron-circle-right" style="color: rgb(25, 231, 87);"></i>
+    
+                    <label class="text-success">Usuario </label>
+                    <input [(ngModel)]="user.name" type="text" name="name" class="form-control"
+                        placeholder="Nombre de Usuario" #name="ngModel" [class.is-invalid]="name.invalid && name.touched"
+                        required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <i class="fas fa-chevron-circle-right" style="color: rgb(25, 231, 87);"></i>
+    
+                    <label class="text-success">Contraseña </label>
+                    <input [(ngModel)]="user.password" type="text" name="phone" class="form-control"
+                        placeholder="Contraseña" #phone="ngModel" [class.is-invalid]="phone.invalid && phone.touched"
+                        required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <i class="fas fa-chevron-circle-right" style="color: rgb(25, 231, 87);"></i>
+    
+                    <label class="text-success">Email</label>
+                    <input [(ngModel)]="user.email" type="text" name="email" class="form-control"
+                        placeholder="Email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" required>
+                </div>
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-check"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
